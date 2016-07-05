@@ -33,12 +33,6 @@ header {
         }
 
         .display-table {
-            height: $header-height;
-            background: url($img-path+'header.png');
-            background-repeat: no-repeat;
-            background-position: right top;
-            position: relative;
-
             &:after {
                 content: '';
                 position: absolute;

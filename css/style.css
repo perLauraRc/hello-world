@@ -3139,22 +3139,16 @@ header {
       background: url("../images/header-right-bg-repeat.png");
       background-repeat: repeat-x;
       background-position: center top; }
-    header .display-table {
-      height: 314px;
-      background: url("../images/header.png");
+    header .display-table:after {
+      content: '';
+      position: absolute;
+      left: 100%;
+      top: 0;
+      width: 70px;
+      height: 100%;
+      background: url("../images/header-right-bg.png");
       background-repeat: no-repeat;
-      background-position: right top;
-      position: relative; }
-      header .display-table:after {
-        content: '';
-        position: absolute;
-        left: 100%;
-        top: 0;
-        width: 70px;
-        height: 100%;
-        background: url("../images/header-right-bg.png");
-        background-repeat: no-repeat;
-        background-position: left top; } }
+      background-position: left top; } }
   header .logo {
     display: inline-block; }
     @media screen and (max-width: 991px) {
