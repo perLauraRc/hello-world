@@ -62,7 +62,7 @@ header {
         }
 
         @media screen and (min-width: map-get($breakpoints, md)) {
-            max-width: $logo-width;
+            width: $logo-width;
         }
     
         img {

@@ -3163,7 +3163,7 @@ header {
         max-width: 67%; } }
     @media screen and (min-width: 992px) {
       header .logo {
-        max-width: 277px; } }
+        width: 277px; } }
     header .logo img {
       width: 100%;
       height: auto; }
