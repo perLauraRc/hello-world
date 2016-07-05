@@ -1,0 +1,163 @@
+/* ======================================================================
+  Inputs
+======================================================================== */
+$input-height: 35px;
+$input-height-mobile: 50px;
+
+%form-control {
+    border: 1px solid $input-border;
+    background: $white;
+    padding: 0 10px;
+    border-radius: 0;
+    font-family: $primary-font;
+    @include rem(font-size, 16px);
+    color: $primary-text;
+    font-weight: 400;
+
+    @media screen and (max-width: map-get($breakpoints, md) - 1) {
+        height: $input-height-mobile;
+    }
+
+    @media screen and (min-width: map-get($breakpoints, md)) {
+        height: $input-height;
+    }    
+}
+
+input[type=text] {    
+    width: 100%;
+
+    @include input-placeholder {
+        color: $placeholder;
+        font-weight: 200;
+    }
+
+    &:focus {
+        outline: none; // Delete hightlight effect on Focus (WebKit Browsers)
+    }
+}
+
+input[type=text].form-control  {
+    @extend %form-control;
+    padding: 3px 10px 0 10px;
+}
+
+div.form-control  {
+    @extend %form-control;
+    color: $primary-text;
+    font-weight: 400;
+
+    @media screen and (max-width: map-get($breakpoints, md) - 1) {
+        padding: 16px 10px 0 10px;
+    }
+
+    @media screen and (min-width: map-get($breakpoints, md)) {
+        padding: 9px 10px 0 10px;
+    }    
+
+    &.not-selected {
+        color: $placeholder;
+        font-weight: 200;
+        padding: 0 10px;
+        text-transform: uppercase;
+        opacity: 0.6;
+
+        @media screen and (max-width: map-get($breakpoints, md) - 1) {
+            line-height: $input-height-mobile; 
+        }
+
+        @media screen and (min-width: map-get($breakpoints, md)) {
+            line-height: $input-height; 
+        }        
+    }
+}
+
+input[type=text].form-control.with-icon, div.form-control.with-icon {
+    @media screen and (max-width: map-get($breakpoints, md) - 1) {
+        padding-right: 52px;
+
+        ~ .control-icon {
+            display: block;
+            position: absolute;
+            right: 15px;
+            top: 0;
+            width: 52px;
+            height: $input-height-mobile;
+            cursor: pointer;
+            @include rem(font-size, 22px);
+            color: $branding-blue;
+            text-align: center;
+            line-height: $input-height-mobile;
+
+            > i.icon {
+                margin: 0 auto;
+            }
+        }
+    }
+
+    @media screen and (min-width: map-get($breakpoints, md)) {
+        padding-right: 37px;
+
+        ~ .control-icon {
+            display: block;
+            position: absolute;
+            right: 35px;
+            top: 0;
+            width: 37px;
+            height: $input-height;
+            cursor: pointer;
+            @include rem(font-size, 18px);
+            color: $branding-blue;
+            text-align: center;
+            line-height: $input-height;
+
+            > i.icon {
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+div.form-control.with-icon {
+    @media screen and (max-width: map-get($breakpoints, md) - 1) {
+        padding-right: 52px;
+    }
+
+    @media screen and (min-width: map-get($breakpoints, md)) {
+        padding-right: 37px;
+    }
+
+    ~ .control-icon {
+        right: 0;
+    }
+}
+
+input[type=submit] {
+    width: 270px;    
+    background-color: $branding-blue;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    border-radius: 3px;
+    box-shadow: 0 6px 16px rgba(0, 159, 234, 0.6), 0 0 4px rgba(0, 159, 234, 0.7);
+    font-family: $primary-font;
+    @include rem(font-size, 14px);
+    color: $white;
+    font-weight: 900;
+    text-transform: uppercase;
+
+    @media screen and (max-width: map-get($breakpoints, md) - 1) {
+        height: $input-height-mobile;
+    }
+
+    @media screen and (min-width: map-get($breakpoints, md)) {
+        height: 45px;
+    }    
+}
+
+input[type=checkbox] {
+    position: absolute;
+    visibility: hidden;
+}
+
+/* removes IE weird default icons inside the inputs */
+::-ms-clear {
+    display: none;
+}

@@ -1,0 +1,134 @@
+/* ======================================================================
+  Pasar px a rems
+======================================================================== */
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+@function parseInt($n) {
+    /* 2 */
+    @return $n / ($n * 0 + 1);
+}
+
+// Mixin to convert units to rems
+@mixin rem($property, $values) {
+    $px: ();
+    $rem: ();
+
+    @each $value in $values {
+        @if $value == 0 or $value == auto {
+            $px: append($px, $value);
+            $rem: append($rem, $value);
+        }
+        @else {
+            $unit: unit($value);
+            $val: parseInt($value);
+
+            @if $unit == "px" {
+                $px: append($px, $value);
+                $rem: append($rem, $val / 16 + rem);
+            }
+
+            @if $unit == "rem" {
+                $px: append($px, $val * 16 + px);
+                $rem: append($rem, $value);
+            }
+        }
+    }
+
+    @if $px == $rem {
+        #{$property}: $px;
+    }
+    @else {
+        #{$property}: $px;
+        #{$property}: $rem;
+    }
+}
+
+// Cross browser opacity
+// This mixin ensures cross browser opacity all the way down to Internet Explorer 5.
+// Though if you have to optomize for IE5, you have a lot bigger problems than opacity, godspeed my friend.
+// url: http://zerosixthree.se/8-sass-mixins-you-must-have-in-your-toolbox/
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+/* ======================================================================
+  Transiciones
+======================================================================== */
+
+@mixin transition($args...) {
+  -webkit-transition:$args;
+  -moz-transition:$args;
+  -ms-transition:$args;
+  -o-transition:$args;
+  transition:$args;
+}
+
+@mixin transform($args...) {
+  -webkit-transform:$args;
+  -ms-transform:$args;
+  -moz-transform:$args;
+  -o-transform:$args;
+  transform:$args;
+}
+
+/* ======================================================================
+  Degradados
+======================================================================== */
+@mixin linear-gradient($direction, $color-stops...) {
+    // Direction has been omitted and happens to be a color-stop
+    @if is-direction($direction) == false {
+        $color-stops: $direction, $color-stops;
+        $direction: 180deg;
+    }
+
+    background: nth(nth($color-stops, 1), 1);
+    background: -webkit-linear-gradient($direction, $color-stops);
+    background: linear-gradient($direction, $color-stops);
+}
+
+
+@mixin radial-gradient($from, $to) {
+  background: -moz-radial-gradient(center, circle cover, $from 0%, $to 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, $from), color-stop(100%, $to));
+  background: -webkit-radial-gradient(center, circle cover, $from 0%, $to 100%);
+  background: -o-radial-gradient(center, circle cover, $from 0%, $to 100%);
+  background: -ms-radial-gradient(center, circle cover, $from 0%, $to 100%);
+  background: radial-gradient(center, circle cover, $from 0%, $to 100%);
+  background-color: $from;
+}
+
+/* ======================================================================
+  Placeholder mixin
+======================================================================== */
+@mixin input-placeholder() {
+  /* WebKit browsers */
+  &::-webkit-input-placeholder {
+      @content;
+  }
+  /* Mozilla Firefox 4 to 18 */
+  &:-moz-placeholder {
+      @content;
+  }  
+  /* Mozilla Firefox 19+ */
+  &::-moz-placeholder {
+      @content;
+  }
+  /* Internet Explorer 10+ */
+  &:-ms-input-placeholder {
+      @content;
+  }
+}
+
+/* ======================================================================
+  Box shadow prefix
+======================================================================== */
+@mixin box-shadow($properties) {
+    -webkit-box-shadow: $properties;
+    -moz-box-shadow: $properties;
+    box-shadow: $properties;
+}

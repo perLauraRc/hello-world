@@ -1,0 +1,49 @@
+/* ======================================================================
+  Base
+======================================================================== */
+html, body {
+    background-color: $custom-blue;
+}
+body {
+    font-family: $primary-font;
+}
+
+a {
+    color: $branding-blue;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+a:focus {
+    outline: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    font-family: $primary-font;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+h1 {
+    text-align: center;    
+    line-height: 1.3;
+    margin: 1.35em 0 1em 0;
+
+    @media screen and (max-width: map-get($breakpoints, md) - 1) {
+        @include rem(font-size,20px);
+    }
+
+    @media screen and (min-width: map-get($breakpoints, md)) {
+        @include rem(font-size,21px);
+    }   
+}
+
+i.fa {
+    color: $branding-blue;
+}

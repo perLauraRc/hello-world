@@ -1,0 +1,98 @@
+/* ======================================================================
+ Subscribe
+====================================================================== */
+.subscribe-full-block {
+    background-color: $custom-blue;
+    position: relative;
+    overflow: hidden;
+
+    @media screen and (max-width: map-get($breakpoints, md) - 1) {
+
+    }
+
+    @media screen and (min-width: map-get($breakpoints, md)) {
+        &:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: url($img-path+'header-bottom-bg-repeat.png');
+            background-repeat: repeat-x;
+            background-position: center top;
+        }
+    }
+  
+}
+
+.subscribe-block {
+    @media screen and (max-width: map-get($breakpoints, md) - 1) {
+        > .block {
+            &.confirm {
+                height: auto;
+
+                .display-table {
+                    text-align: center;
+
+                    .display-table-cell {
+                        padding: 8em 0;
+                    }
+                }
+
+                i.fa {
+                    @include rem(font-size,32px);
+                }
+
+                p.confirm-heading {
+                    color: $branding-blue;
+                    @include rem(font-size,18px);
+                    font-weight: 300;
+                    margin-top: 1.4em;
+                    margin-bottom: 0; 
+                }
+
+                p.confirm-text {
+                    color: $primary-text;
+                    @include rem(font-size,15px);
+                    font-weight: 300;
+                    margin-top: 0.4em;
+                }                               
+            }
+        }
+    }
+
+    @media screen and (min-width: map-get($breakpoints, md)) {
+        > .block {
+            min-height: 472px;
+
+            &.confirm {
+                height: 472px;
+
+                .display-table {
+                    text-align: center;
+                    height: 100%;
+                }
+
+                i.fa {
+                    @include rem(font-size,32px);
+                }
+
+                p.confirm-heading {
+                    color: $branding-blue;
+                    @include rem(font-size,20px);
+                    font-weight: 300;
+                    margin-top: 1.4em;
+                    margin-bottom: 0; 
+                }
+
+                p.confirm-text {
+                    color: $primary-text;
+                    @include rem(font-size,16px);
+                    font-weight: 300;
+                    margin-top: 0.4em;
+                }                               
+            }
+        }
+    }  
+}

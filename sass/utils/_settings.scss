@@ -1,0 +1,40 @@
+/* ======================================================================
+  Colors
+======================================================================== */
+// Base
+$branding-blue: #009FEA; //Branding blue
+$custom-blue: #009be4;
+$blue: #006EB7; // Dark blue
+$white: #FFFFFF; // White
+
+// Text
+$primary-text: #363636; // Dark gray
+$secondary-text: #999999; // Light gray
+
+// Form Boxes
+$input-border: #DBDBDB; // Input border
+$placeholder: #7e7e7e; // Placeholder
+
+/* ======================================================================
+  Settings
+======================================================================== */
+// Paths
+$img-path: '../images/';
+$fonts-folder-path: '../fonts/';
+$fa-font-path: '../font-awesome/fonts/';
+
+// Fonts
+$primary-font: 'locator', 'Helvetica', sans-serif;
+$secondary-font: 'Arial', sans-serif;
+
+// Transition
+$base-transition: all 0.2s ease-in-out;
+
+// Grid breakpoints
+$breakpoints: (
+	xxs : 320px,
+	xs  : 600px, // Facebook mobile breakpoint
+	sm  : 768px,
+	md  : 992px,
+	lg 	: 1200px
+);

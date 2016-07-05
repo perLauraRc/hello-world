@@ -1,0 +1,43 @@
+// Fontello
+@font-face {
+  font-family: 'fontello';
+  src: url($fonts-folder-path + 'fontello.eot?11295210');
+  src: url($fonts-folder-path + 'fontello.eot?11295210#iefix') format('embedded-opentype'),
+       url($fonts-folder-path + 'fontello.woff2?11295210') format('woff2'),
+       url($fonts-folder-path + 'fontello.woff?11295210') format('woff'),
+       url($fonts-folder-path + 'fontello.ttf?11295210') format('truetype'),
+       url($fonts-folder-path + 'fontello.svg?11295210#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?11295210#fontello') format('svg');
+  }
+}
+*/
+
+// Primary font proviisonal
+/*
+@font-face {
+    font-family: 'opineheavyregular';
+    src: url($fonts-folder-path + 'opineheavy-regular-webfont.eot');
+    src: url($fonts-folder-path + 'opineheavy-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url($fonts-folder-path + 'opineheavy-regular-webfont.woff') format('woff'),
+         url($fonts-folder-path + 'opineheavy-regular-webfont.ttf') format('truetype'),
+         url($fonts-folder-path + 'opineheavy-regular-webfont.svg#opineheavyregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+@font-face {
+    font-family: 'opineheavyregular';
+    src: url($fonts-folder-path + 'locator.woff') format('woff'),
+         url($fonts-folder-path + 'locator.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

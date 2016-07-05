@@ -1,0 +1,63 @@
+/* ======================================================================
+  List
+======================================================================== */
+$option-height: 35px;
+$option-height-mobile: 50px;
+$check-height: 38px;
+$check-height-mobile: 50px;
+
+ul.options-list {
+	display: none;
+	width: 100%;
+	height: auto;
+	border-left: 1px solid $input-border;
+	border-right: 1px solid $input-border;
+
+	li {
+	    border-bottom: 1px solid $input-border;
+
+        @media screen and (max-width: map-get($breakpoints, md) - 1) {
+		    height: $option-height-mobile;
+		    line-height: $option-height-mobile;
+        }
+
+        @media screen and (min-width: map-get($breakpoints, md)) {
+		    height: $option-height;
+		    line-height: $option-height;
+        }	    
+
+	    > a {
+	    	display: block;
+	    	width: 100%;
+	    	height: 100%;
+		    padding: 0 10px;
+		    font-family: $primary-font;
+		    @include rem(font-size, 16px);
+		    color: $primary-text;
+		    font-weight: 400;
+		    line-height: inherit;
+		    background: $white;
+
+		    &:hover {
+		    	color: $white;
+				background: $branding-blue;
+		    }
+	    }
+	}
+}
+
+ul.check-list {
+	float: left;
+	width: 50%;
+
+	li {	    
+        @media screen and (max-width: map-get($breakpoints, md) - 1) {
+		    height: $check-height-mobile;
+		    margin-top: -9px;
+        }
+
+        @media screen and (min-width: map-get($breakpoints, md)) {
+		    height: $check-height;
+        }	    
+	}
+}
